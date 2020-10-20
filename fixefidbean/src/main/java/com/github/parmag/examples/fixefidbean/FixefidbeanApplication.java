@@ -60,6 +60,7 @@ public class FixefidbeanApplication {
 		Map<String, List<FieldExtendedProperty>> result = new HashMap<String, List<FieldExtendedProperty>>();
 		result.putAll(createPersonMapFieldExtendedProperties());
 		result.put("enabled", Student.ENABLED_FIELD_EXTENDED_PROPERTIES);
+		result.put("cardNumber", Student.CARD_NUMBER_FIELD_EXTENDED_PROPERTIES);
 		return result;
 	}
 
@@ -119,8 +120,9 @@ public class FixefidbeanApplication {
 		
 		Student student = new Student();
 		student.setStudentId(1234L);
-		student.setEnabled(true);
+		student.setEnabled(true); 
 		student.setLevel(4);
+		student.setCardNumber("1234-5678-9001");
 		
 		student.setAddress(address);
 		student.setAge(43);

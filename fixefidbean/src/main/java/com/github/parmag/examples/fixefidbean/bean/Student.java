@@ -3,29 +3,24 @@ package com.github.parmag.examples.fixefidbean.bean;
 import java.util.Arrays;
 import java.util.List;
 
+import com.github.parmag.examples.fixefidbean.format.MaskCustomFormat;
+import com.github.parmag.examples.fixefidbean.format.YNBooleanFormat;
 import com.github.parmag.fixefid.record.bean.FixefidField;
 import com.github.parmag.fixefid.record.bean.FixefidRecord;
 import com.github.parmag.fixefid.record.field.FieldExtendedProperty;
 import com.github.parmag.fixefid.record.field.FieldExtendedPropertyType;
 import com.github.parmag.fixefid.record.field.FieldMandatory;
 import com.github.parmag.fixefid.record.field.FieldType;
-import com.github.parmag.fixefid.record.format.BooleanFormat;
 
 @FixefidRecord(recordLen = 600)
 public class Student extends Person {
 	public static List<FieldExtendedProperty> ENABLED_FIELD_EXTENDED_PROPERTIES = Arrays.asList(
-		new FieldExtendedProperty(FieldExtendedPropertyType.BOOLEAN_FORMAT, new BooleanFormat() {
-			@Override
-			public String format(Boolean value) {
-				return (value != null && value.booleanValue()) ? "Y" : "N";
-			}
-		
-			@Override
-			public Boolean parse(String value) {
-				return "Y".equals(value) ? true : false;
-			}
-		})
+		new FieldExtendedProperty(FieldExtendedPropertyType.BOOLEAN_FORMAT, new YNBooleanFormat())
 	);
+	
+	public static List<FieldExtendedProperty> CARD_NUMBER_FIELD_EXTENDED_PROPERTIES = Arrays.asList(
+			new FieldExtendedProperty(FieldExtendedPropertyType.CUSTOM_FORMAT, new MaskCustomFormat())
+		);
 	
 	@FixefidField(fieldLen = 10, fieldOrdinal = 8, fieldType = FieldType.N, fieldMandatory = FieldMandatory.OUT)
 	private Long studentId;
@@ -35,6 +30,9 @@ public class Student extends Person {
 	
 	@FixefidField(fieldLen = 2, fieldOrdinal = 10, fieldType = FieldType.N)
 	private int level;
+	
+	@FixefidField(fieldLen = 14, fieldOrdinal = 11, fieldType = FieldType.AN)
+	private String cardNumber;
 
 	public Long getStudentId() {
 		return studentId;
@@ -58,5 +56,13 @@ public class Student extends Person {
 
 	public void setLevel(int level) {
 		this.level = level;
+	}
+
+	public String getCardNumber() {
+		return cardNumber;
+	}
+
+	public void setCardNumber(String cardNumber) {
+		this.cardNumber = cardNumber;
 	}
 }
