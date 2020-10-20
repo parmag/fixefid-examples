@@ -1,5 +1,6 @@
 package com.github.parmag.examples.fixefidbean;
 
+import java.math.BigDecimal;
 import java.util.Calendar;
 import java.util.HashMap;
 import java.util.List;
@@ -52,6 +53,8 @@ public class FixefidbeanApplication {
 
 	private Map<String, List<FieldExtendedProperty>> createPersonMapFieldExtendedProperties() {
 		Map<String, List<FieldExtendedProperty>> result = new HashMap<String, List<FieldExtendedProperty>>();
+		result.put("firstName", Person.NAME_FIELD_EXTENDED_PROPERTIES);
+		result.put("lastName", Person.NAME_FIELD_EXTENDED_PROPERTIES);
 		result.put("birthInfo.birthDate", BirthInfo.BIRTH_DATE_FIELD_EXTENDED_PROPERTIES);
 		return result;
 	}
@@ -61,6 +64,8 @@ public class FixefidbeanApplication {
 		result.putAll(createPersonMapFieldExtendedProperties());
 		result.put("enabled", Student.ENABLED_FIELD_EXTENDED_PROPERTIES);
 		result.put("cardNumber", Student.CARD_NUMBER_FIELD_EXTENDED_PROPERTIES);
+		result.put("taxAmount", Student.TAX_AMOUNT_FIELD_EXTENDED_PROPERTIES);
+		result.put("college", Student.COLLEGE_FIELD_EXTENDED_PROPERTIES);
 		return result;
 	}
 
@@ -72,7 +77,7 @@ public class FixefidbeanApplication {
 		Person person = new Person();
 		person.setAddress(address);
 		person.setAge(43);
-		person.setFirstName("Paul");
+		person.setFirstName("Pàul"); // will be normalized without accents
 		person.setLastName("Robinson");
 		person.setPersonId(1234567890L); 
 		person.setBirthInfo(birthInfo); 
@@ -123,6 +128,8 @@ public class FixefidbeanApplication {
 		student.setEnabled(true); 
 		student.setLevel(4);
 		student.setCardNumber("1234-5678-9001");
+		student.setTaxAmount(BigDecimal.valueOf(500.12));
+		student.setCollege("University of Southern California");
 		
 		student.setAddress(address);
 		student.setAge(43);

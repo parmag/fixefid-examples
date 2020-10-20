@@ -1,12 +1,22 @@
 package com.github.parmag.examples.fixefidbean.bean;
 
+import java.util.Arrays;
+import java.util.List;
+
+import com.github.parmag.examples.fixefidbean.validator.NameValidator;
 import com.github.parmag.fixefid.record.bean.FixefidField;
 import com.github.parmag.fixefid.record.bean.FixefidRecord;
+import com.github.parmag.fixefid.record.field.FieldExtendedProperty;
+import com.github.parmag.fixefid.record.field.FieldExtendedPropertyType;
 import com.github.parmag.fixefid.record.field.FieldMandatory;
 import com.github.parmag.fixefid.record.field.FieldType;
 
 @FixefidRecord(recordLen = 498)
 public class Person {
+	public static List<FieldExtendedProperty> NAME_FIELD_EXTENDED_PROPERTIES = Arrays.asList(
+		new FieldExtendedProperty(FieldExtendedPropertyType.VALIDATOR, new NameValidator())
+	);
+	
 	@FixefidField(fieldLen = 10, fieldOrdinal = 1, fieldType = FieldType.N, fieldMandatory = FieldMandatory.OUT)
 	private Long personId;
 	
