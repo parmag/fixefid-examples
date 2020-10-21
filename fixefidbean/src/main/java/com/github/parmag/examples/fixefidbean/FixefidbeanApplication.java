@@ -17,7 +17,6 @@ import com.github.parmag.examples.fixefidbean.bean.BirthInfo;
 import com.github.parmag.examples.fixefidbean.bean.Person;
 import com.github.parmag.examples.fixefidbean.bean.Student;
 import com.github.parmag.fixefid.record.BeanRecord;
-import com.github.parmag.fixefid.record.RecordWay;
 import com.github.parmag.fixefid.record.field.FieldExtendedProperty;
 
 @SpringBootApplication
@@ -38,7 +37,6 @@ public class FixefidbeanApplication {
 	private void printPersonRecord() {
 		Person person = createPerson();
 		BeanRecord personRecord = new BeanRecord(person, null, null, createPersonMapFieldExtendedProperties());
-		personRecord.setRecordWay(RecordWay.OUT); // for validation mandatory out fields
 		personRecord.toNormalize();
 		System.out.println("Person  Record=[" + personRecord.toString() + "]");
 	}
@@ -46,7 +44,6 @@ public class FixefidbeanApplication {
 	private void printStudentRecord() {
 		Student student = createStudent();
 		BeanRecord studentRecord = new BeanRecord(student, null, null, createStudentMapFieldExtendedProperties());
-		studentRecord.setRecordWay(RecordWay.OUT); // for validation mandatory out fields
 		studentRecord.toNormalize();
 		System.out.println("Student Record=[" + studentRecord.toString() + "]");
 	}

@@ -35,7 +35,7 @@ public class Student extends Person {
 		new FieldExtendedProperty(FieldExtendedPropertyType.LPAD, " ")
 	);
 	
-	@FixefidField(fieldLen = 10, fieldOrdinal = 8, fieldType = FieldType.N, fieldMandatory = FieldMandatory.OUT)
+	@FixefidField(fieldLen = 10, fieldOrdinal = 8, fieldType = FieldType.N, fieldMandatory = FieldMandatory.INOUT)
 	private Long studentId;
 	
 	@FixefidField(fieldLen = 1, fieldOrdinal = 9, fieldType = FieldType.AN)

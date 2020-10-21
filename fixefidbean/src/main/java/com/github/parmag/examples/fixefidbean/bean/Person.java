@@ -17,7 +17,7 @@ public class Person {
 		new FieldExtendedProperty(FieldExtendedPropertyType.VALIDATOR, new NameValidator())
 	);
 	
-	@FixefidField(fieldLen = 10, fieldOrdinal = 1, fieldType = FieldType.N, fieldMandatory = FieldMandatory.OUT)
+	@FixefidField(fieldLen = 10, fieldOrdinal = 1, fieldType = FieldType.N, fieldMandatory = FieldMandatory.INOUT)
 	private Long personId;
 	
 	@FixefidField(fieldLen = 25, fieldOrdinal = 2, fieldType = FieldType.AN)
