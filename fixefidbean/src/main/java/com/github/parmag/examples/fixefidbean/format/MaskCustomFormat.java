@@ -6,8 +6,8 @@ public class MaskCustomFormat implements CustomFormat {
 
 	@Override
 	public String format(String value) {
-		if (value.length() < 6) {
-			return "XXXXXXXXXXXXXX";
+		if (value.length() < 10) {
+			return "XXXX-XXXX-XXXX";
 		} else {
 			return "XXXX" + value.substring(4, 10) + "XXXX";
 		}

@@ -32,7 +32,7 @@ public class Student extends Person {
 	);
 	
 	public static List<FieldExtendedProperty> COLLEGE_FIELD_EXTENDED_PROPERTIES = Arrays.asList(
-		new FieldExtendedProperty(FieldExtendedPropertyType.LPAD, ".")
+		new FieldExtendedProperty(FieldExtendedPropertyType.LPAD, " ")
 	);
 	
 	@FixefidField(fieldLen = 10, fieldOrdinal = 8, fieldType = FieldType.N, fieldMandatory = FieldMandatory.OUT)
