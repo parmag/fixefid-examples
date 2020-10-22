@@ -53,6 +53,9 @@ public class Student extends Person {
 	@FixefidField(fieldLen = 50, fieldOrdinal = 13, fieldType = FieldType.AN)
 	private String college;
 	
+	@FixefidField(fieldLen = 15, fieldOrdinal = 14, fieldType = FieldType.AN)
+	private String filler;
+	
 	public Long getStudentId() {
 		return studentId;
 	}
@@ -99,5 +102,13 @@ public class Student extends Person {
 
 	public void setCollege(String college) {
 		this.college = college;
+	}
+
+	public String getFiller() {
+		return filler;
+	}
+
+	public void setFiller(String filler) {
+		this.filler = filler;
 	}
 }

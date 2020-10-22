@@ -26,6 +26,9 @@ public class Address {
 	
 	@FixefidField(fieldLen = 3, fieldOrdinal = 7, fieldType = FieldType.AN, fieldDefaultValue = "ITA")
 	private String nation;
+	
+	@FixefidField(fieldLen = 30, fieldOrdinal = 8, fieldType = FieldType.AN)
+	private String filler;
 
 	public String getNum() {
 		return num;
@@ -81,5 +84,13 @@ public class Address {
 
 	public void setNation(String nation) {
 		this.nation = nation;
+	}
+
+	public String getFiller() {
+		return filler;
+	}
+
+	public void setFiller(String filler) {
+		this.filler = filler;
 	}
 }

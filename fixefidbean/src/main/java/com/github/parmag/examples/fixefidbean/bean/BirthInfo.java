@@ -22,7 +22,7 @@ public class BirthInfo {
 	private Date birthDate;
 	
 	@FixefidField(fieldLen = 200, fieldOrdinal = 2, fieldType = FieldType.CMP)
-	private Address birthAddress;
+	private Address birthAddress = new Address(); ;
 
 	public Date getBirthDate() {
 		return birthDate;

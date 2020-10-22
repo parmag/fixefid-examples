@@ -35,17 +35,37 @@ public class FixefidbeanApplication {
 	}
 
 	private void printPersonRecord() {
+		System.out.println("***********************PERSON******************************");
+		
 		Person person = createPerson();
 		BeanRecord personRecord = new BeanRecord(person, null, null, createPersonMapFieldExtendedProperties());
 		personRecord.toNormalize();
-		System.out.println("Person  Record=[" + personRecord.toString() + "]");
+		String personRecordAsString = personRecord.toString();
+		System.out.println("Person  Record=[" + personRecordAsString + "]");
+		
+		Person personFromString = new Person();
+		BeanRecord personRecordFromString = new BeanRecord(personFromString, personRecordAsString, null, createPersonMapFieldExtendedProperties());
+		personRecordFromString.toNormalize();
+		System.out.println("Person  Record PersonId=[" + personFromString.getPersonId() + "]");
+		System.out.println("Person  Record BirthDate=[" + personFromString.getBirthInfo().getBirthDate() + "]");
 	}
 	
 	private void printStudentRecord() {
+		System.out.println("***********************STUDENT*****************************");
+		
 		Student student = createStudent();
 		BeanRecord studentRecord = new BeanRecord(student, null, null, createStudentMapFieldExtendedProperties());
 		studentRecord.toNormalize();
-		System.out.println("Student Record=[" + studentRecord.toString() + "]");
+		String studentRecordAsString = studentRecord.toString();
+		System.out.println("Student Record=[" + studentRecordAsString + "]");
+		
+		Student studentFromString = new Student();
+		BeanRecord studentRecordFromString = new BeanRecord(studentFromString, studentRecordAsString, null, createStudentMapFieldExtendedProperties());
+		studentRecordFromString.toNormalize();
+		System.out.println("Student Record PersonId=[" + studentFromString.getPersonId() + "]");
+		System.out.println("Student Record BirthDate=[" + studentFromString.getBirthInfo().getBirthDate() + "]");
+		System.out.println("Student Record StudentId=[" + studentFromString.getStudentId() + "]");
+		System.out.println("Student Record TaxAmount=[" + studentFromString.getTaxAmount() + "]");
 	}
 
 	private Map<String, List<FieldExtendedProperty>> createPersonMapFieldExtendedProperties() {

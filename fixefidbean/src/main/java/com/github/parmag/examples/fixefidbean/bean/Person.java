@@ -33,10 +33,10 @@ public class Person {
 	private String fiscalCode;
 	
 	@FixefidField(fieldLen = 200, fieldOrdinal = 6, fieldType = FieldType.CMP)
-	private Address address;
+	private Address address = new Address(); 
 	
 	@FixefidField(fieldLen = 210, fieldOrdinal = 7, fieldType = FieldType.CMP)
-	private BirthInfo birthInfo;
+	private BirthInfo birthInfo = new BirthInfo();
 
 	public Long getPersonId() {
 		return personId;
