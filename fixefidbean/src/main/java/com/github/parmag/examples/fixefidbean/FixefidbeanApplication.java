@@ -29,9 +29,43 @@ public class FixefidbeanApplication {
 	@Bean
 	public CommandLineRunner commandLineRunner(ApplicationContext ctx) {
 		return args -> {
+			printAddressRecord();
+			printBirthAddressRecord();
 			printPersonRecord();
 			printStudentRecord();
 		};
+	}
+	
+	private void printAddressRecord() {
+		System.out.println("***********************ADDRESS******************************");
+		
+		Address address = createAddress();
+		BeanRecord addressRecord = new BeanRecord(address);
+		addressRecord.toNormalize();
+		String addressRecordAsString = addressRecord.toString();
+		System.out.println("Address Record=[" + addressRecordAsString + "]");
+		
+		Address addressFromString = new Address();
+		BeanRecord addressRecordFromString = new BeanRecord(addressFromString, addressRecordAsString);
+		addressRecordFromString.toNormalize();
+		System.out.println("Address Address=[" + addressFromString.getAddress() + "]");
+		System.out.println("Address Num=[" + addressFromString.getNum() + "]");
+	}
+	
+	private void printBirthAddressRecord() {
+		System.out.println("***********************BIRTH ADDRESS******************************");
+		
+		Address address = createBirthAddress();
+		BeanRecord addressRecord = new BeanRecord(address);
+		addressRecord.toNormalize();
+		String addressRecordAsString = addressRecord.toString();
+		System.out.println("Birth Address Record=[" + addressRecordAsString + "]");
+		
+		Address addressFromString = new Address();
+		BeanRecord addressRecordFromString = new BeanRecord(addressFromString, addressRecordAsString);
+		addressRecordFromString.toNormalize();
+		System.out.println("Birth Address Address=[" + addressFromString.getAddress() + "]");
+		System.out.println("Birth Address Num=[" + addressFromString.getNum() + "]");
 	}
 
 	private void printPersonRecord() {
@@ -41,13 +75,13 @@ public class FixefidbeanApplication {
 		BeanRecord personRecord = new BeanRecord(person, null, null, createPersonMapFieldExtendedProperties());
 		personRecord.toNormalize();
 		String personRecordAsString = personRecord.toString();
-		System.out.println("Person  Record=[" + personRecordAsString + "]");
+		System.out.println("Person Record=[" + personRecordAsString + "]");
 		
 		Person personFromString = new Person();
 		BeanRecord personRecordFromString = new BeanRecord(personFromString, personRecordAsString, null, createPersonMapFieldExtendedProperties());
 		personRecordFromString.toNormalize();
-		System.out.println("Person  Record PersonId=[" + personFromString.getPersonId() + "]");
-		System.out.println("Person  Record BirthDate=[" + personFromString.getBirthInfo().getBirthDate() + "]");
+		System.out.println("Person PersonId=[" + personFromString.getPersonId() + "]");
+		System.out.println("Person BirthDate=[" + personFromString.getBirthInfo().getBirthDate() + "]");
 	}
 	
 	private void printStudentRecord() {
@@ -62,10 +96,10 @@ public class FixefidbeanApplication {
 		Student studentFromString = new Student();
 		BeanRecord studentRecordFromString = new BeanRecord(studentFromString, studentRecordAsString, null, createStudentMapFieldExtendedProperties());
 		studentRecordFromString.toNormalize();
-		System.out.println("Student Record PersonId=[" + studentFromString.getPersonId() + "]");
-		System.out.println("Student Record BirthDate=[" + studentFromString.getBirthInfo().getBirthDate() + "]");
-		System.out.println("Student Record StudentId=[" + studentFromString.getStudentId() + "]");
-		System.out.println("Student Record TaxAmount=[" + studentFromString.getTaxAmount() + "]");
+		System.out.println("Student PersonId=[" + studentFromString.getPersonId() + "]");
+		System.out.println("Student BirthDate=[" + studentFromString.getBirthInfo().getBirthDate() + "]");
+		System.out.println("Student StudentId=[" + studentFromString.getStudentId() + "]");
+		System.out.println("Student TaxAmount=[" + studentFromString.getTaxAmount() + "]");
 	}
 
 	private Map<String, List<FieldExtendedProperty>> createPersonMapFieldExtendedProperties() {
