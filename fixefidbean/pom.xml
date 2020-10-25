@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>com.github.parmag.examples</groupId>
 	<artifactId>fixefidbean</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>1.0.0</version>
 	<name>fixefidbean</name>
 	<description>Demo project for Spring Boot and Fixefid with Java Bean</description>
 
