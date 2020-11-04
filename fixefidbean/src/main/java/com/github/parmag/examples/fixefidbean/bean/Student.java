@@ -18,20 +18,20 @@ import com.github.parmag.fixefid.record.field.FieldType;
 
 @FixefidRecord(recordLen = 600)
 public class Student extends Person {
-	public static List<FieldExtendedProperty> ENABLED_FIELD_EXTENDED_PROPERTIES = Arrays.asList(
+	public static final List<FieldExtendedProperty> ENABLED_FIELD_EXTENDED_PROPERTIES = Arrays.asList(
 		new FieldExtendedProperty(FieldExtendedPropertyType.BOOLEAN_FORMAT, new YNBooleanFormat())
 	);
 	
-	public static List<FieldExtendedProperty> CARD_NUMBER_FIELD_EXTENDED_PROPERTIES = Arrays.asList(
+	public static final List<FieldExtendedProperty> CARD_NUMBER_FIELD_EXTENDED_PROPERTIES = Arrays.asList(
 		new FieldExtendedProperty(FieldExtendedPropertyType.CUSTOM_FORMAT, new MaskCustomFormat())
 	);
 	
-	public static List<FieldExtendedProperty> TAX_AMOUNT_FIELD_EXTENDED_PROPERTIES = Arrays.asList(
+	public static final List<FieldExtendedProperty> TAX_AMOUNT_FIELD_EXTENDED_PROPERTIES = Arrays.asList(
 		new FieldExtendedProperty(FieldExtendedPropertyType.REMOVE_DECIMAL_SEPARATOR, true),
 		new FieldExtendedProperty(FieldExtendedPropertyType.DECIMAL_FORMAT, new DecimalFormat("0.00", new DecimalFormatSymbols(Locale.ENGLISH)))
 	);
 	
-	public static List<FieldExtendedProperty> COLLEGE_FIELD_EXTENDED_PROPERTIES = Arrays.asList(
+	public static final List<FieldExtendedProperty> COLLEGE_FIELD_EXTENDED_PROPERTIES = Arrays.asList(
 		new FieldExtendedProperty(FieldExtendedPropertyType.LPAD, " ")
 	);
 	
