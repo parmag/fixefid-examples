@@ -23,12 +23,12 @@ public class Customer {
 	@FixefidField(fieldLen = 50, fieldOrdinal = 2, fieldType = FieldType.AN)
 	private String lastName;
 
-	public Customer() {
+	protected Customer() {
 	}
 
 	public Customer(String firstName, String lastName) {
-		this.setFirstName(firstName);
-		this.setLastName(lastName);
+		this.firstName = firstName;
+		this.lastName = lastName;
 	}
 
 	@Override
@@ -44,15 +44,7 @@ public class Customer {
 		return firstName;
 	}
 
-	public void setFirstName(String firstName) {
-		this.firstName = firstName;
-	}
-	
 	public String getLastName() {
 		return lastName;
-	}
-
-	public void setLastName(String lastName) {
-		this.lastName = lastName;
 	}
 }

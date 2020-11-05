@@ -58,7 +58,7 @@ public class FixefidjpaApplication {
 			// create a new customer from record as string, save and fetch
 			LOG.info("Create new Customer from Record=[0000000000000000000Paul                                              Parma                                             ]");
 			String parmaRecordAsString = "0000000000000000000Paul                                              Parma                                             ";
-			Customer parmaCustomer = new Customer();
+			Customer parmaCustomer = new Customer(null, null);
 			new BeanRecord(parmaCustomer, parmaRecordAsString);
 			repository.save(parmaCustomer);
 			LOG.info("Customer found with findByLastName('Parma'):");
